@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Search Our Accomodations</h1>
+
+    <form action="/" method ="post" th:object="${Landing}">
+        <table>
+            <tr>
+                Country: 
+                <select name="Country" id="country" >
+                    <option value="" selected="selected" th:each="country: ${listOfCountries}" th:field="*{country}" th:value="${country}" th:text="${country}">Select Country</option>
+                </select> 
+            </tr>
+            <br>
+            <br>
+            <tr>
+                Number of person:
+                <input type="text" th:field="*{numOfPerson}">
+            </tr>
+            <br>
+            <br>
+            <tr>
+                Price Range:
+                Min <input type="text" th:field="*{min}"> Max <input type="text" th:field="*{max}">
+            </tr>
+            <br>
+            <br>
+            <tr>
+                <button>Search</button>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>
