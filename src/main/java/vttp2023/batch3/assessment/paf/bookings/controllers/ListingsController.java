@@ -70,16 +70,21 @@ public class ListingsController {
 		m.addAttribute("listofPrice", listOfPrice);
 		m.addAttribute("listofImages", listofImage);
 
-		// System.out.println("result in controller: " + listingsService.getSearch(landing));
+		System.out.println("result in controller: " + listingsService.getSearch(landing));
 		return "view2";
 
 	}
 
 	//TODO: Task 4
 
-	public String getDetailOfEach(@RequestParam String id){
+
+	@GetMapping("/search/details")
+	public String getDetailOfEach(@RequestParam String id, Model m){
 		
-		listingsService.getDetail(id);
+		List<Document> listofResult = listingsService.getDetail(id);
+		m.addAttribute("listofResult", listofResult);
+		System.out.println("task 4 results" + listofResult);
+
 		return "view3";
 
 	}
