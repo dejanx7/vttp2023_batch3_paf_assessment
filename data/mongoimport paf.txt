@@ -1,0 +1,1 @@
+mongoimport --uri mongodb+srv://arun:arun123@cluster0.igzjn7b.mongodb.net -d Listings -c listing C:\Users\arunn\OneDrive\Desktop\vttp2023_batch3_paf_assessment\data\listings.json
