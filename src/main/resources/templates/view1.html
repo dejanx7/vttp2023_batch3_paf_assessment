@@ -8,25 +8,31 @@
 <body>
     <h1>Search Our Accomodations</h1>
 
-    <form action="/" method ="post" th:object="${Landing}">
+    <form action="/search" method ="get" th:object="${Landing}">
         <table>
             <tr>
                 Country: 
-                <select name="Country" id="country" >
+                <select name="country" id="country" >
                     <option value="" selected="selected" th:each="country: ${listOfCountries}" th:field="*{country}" th:value="${country}" th:text="${country}">Select Country</option>
-                </select> 
+                </select>
+                <p th:if="${#fields.hasErrors('country')}" th:errorclass="error" th:errors="*{country}" style="color: red;">
+
             </tr>
             <br>
             <br>
             <tr>
                 Number of person:
-                <input type="text" th:field="*{numOfPerson}">
+                <input type="text" th:field="*{numOfPerson}" name="numOfPerson">
+            
             </tr>
+            <p th:if="${#fields.hasErrors('numOfPerson')}" th:errorclass="error" th:errors="*{numOfPerson}" style="color: red;"></p>
             <br>
             <br>
             <tr>
                 Price Range:
-                Min <input type="text" th:field="*{min}"> Max <input type="text" th:field="*{max}">
+                Min <input type="text" name="min" th:field="*{min}"> Max <input type="text" name="max" th:field="*{max}">
+                <p th:if="${#fields.hasErrors('min')}" th:errorclass="error" th:errors="*{min}" style="color: red;"></p>
+                <p th:if="${#fields.hasErrors('max')}" th:errorclass="error" th:errors="*{max}" style="color: red;"></p>
             </tr>
             <br>
             <br>
